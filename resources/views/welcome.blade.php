@@ -13,4 +13,18 @@
       </nav>
     </div>
   </div>
+
+  <div class="container">
+    <div class="row">
+      @foreach ($messages as $message)
+        <div class="col-6">
+          <img class="img-thumbnail" src="{{ $message['image'] }}">
+          <p class="card-text">
+            {{ $message['content'] }}
+            <a href="/message/{{ $message['id'] }}">Leer más</a>
+          </p>
+        </div>
+      @endforeach
+    </div>
+  </div>
 @endsection
