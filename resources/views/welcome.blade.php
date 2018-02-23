@@ -16,7 +16,7 @@
 
   <div class="container">
     <div class="row">
-      @foreach ($messages as $message)
+      @forelse ($messages as $message)
         <div class="col-6">
           <img class="img-thumbnail" src="{{ $message['image'] }}">
           <p class="card-text">
@@ -24,7 +24,9 @@
             <a href="/message/{{ $message['id'] }}">Leer más</a>
           </p>
         </div>
-      @endforeach
+      @empty
+        <p>No hay mensajes destacados</p>
+      @endforelse
     </div>
   </div>
 @endsection
