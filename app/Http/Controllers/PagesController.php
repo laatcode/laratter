@@ -3,32 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Message;
 
 class PagesController extends Controller
 {
     public function index(){
-      $messages = [
-        [
-          'id' => 1,
-          'content' => 'Este es mi primer mensaje!',
-          'image' => 'http://lorempixel.com/600/338?1'
-        ],
-        [
-          'id' => 2,
-          'content' => 'Este es el segundo mensaje!',
-          'image' => 'http://lorempixel.com/600/338?2'
-        ],
-        [
-          'id' => 3,
-          'content' => 'Otro mensaje más!',
-          'image' => 'http://lorempixel.com/600/338?3'
-        ],
-        [
-          'id' => 4,
-          'content' => 'El último mensaje mensaje!',
-          'image' => 'http://lorempixel.com/600/338?4'
-        ]
-      ];
+
+      $messages = Message::all();
 
       return view('welcome', [
         'messages' => $messages
