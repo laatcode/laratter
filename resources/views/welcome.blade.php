@@ -17,8 +17,9 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <form action="messages.create" method="post">
+        <form action="messages/create" method="post">
           <div class="form-group">
+            {{ csrf_field() }}
             <input type="text" name="message" class="form-control" placeholder="¿Qué estás pensando?">
           </div>
         </form>
