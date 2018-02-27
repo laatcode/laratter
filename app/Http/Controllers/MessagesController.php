@@ -16,6 +16,11 @@ class MessagesController extends Controller
     }
 
     public function create(CreateMessageRequest $request){
-      dd($request->all());
+      $message = Message::create([
+        'content' => $request->message,
+        'image' => 'http://lorempixel.com/600/338?'.mt_rand(0, 1000),
+      ]);
+
+      return redirect('/messages/' . $message->id);
     }
 }
