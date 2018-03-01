@@ -18,8 +18,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- JS -->
-    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
 </head>
 <body>
