@@ -121,7 +121,8 @@ return [
       'password' => 'Contraseña',
       'names' => 'Nombres',
       'lastnames' => 'Apellidos',
-      'message' => 'Mensaje'
+      'message' => 'Mensaje',
+      'username' => 'Nombre de usuario',
     ],
 
 ];
