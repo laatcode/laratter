@@ -4,6 +4,12 @@
   <div class="container">
     <h1>{{ $user->name }}</h1>
 
+    <form action="/{{ $user->username }}/follow" method="post">
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit" name="button">Seguir</button>
+      </div>
+    </form>
+
     <div class="row">
       @foreach ($user->messages as $message)
         <div class="col-6">
