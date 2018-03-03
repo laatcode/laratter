@@ -5,15 +5,27 @@
     <h1>{{ $user->name }}</h1>
 
     @if (Auth::check())
-      <form action="/{{ $user->username }}/follow" method="post">
-        <div class="form-group">
-          @if (session('success'))
-            <span class="text-success">{{ session('success') }}</span>
-          @endif
-          {{ csrf_field() }}
-          <button class="btn btn-primary" type="submit" name="button">Seguir</button>
-        </div>
-      </form>
+      @if (Auth::user()->isFollowing($user))
+        <form action="/{{ $user->username }}/unfollow" method="post">
+          <div class="form-group">
+            @if (session('success'))
+              <span class="text-success">{{ session('success') }}</span>
+            @endif
+            {{ csrf_field() }}
+            <button class="btn btn-danger" type="submit" name="button">Dejar de seguir</button>
+          </div>
+        </form>
+      @else
+        <form action="/{{ $user->username }}/follow" method="post">
+          <div class="form-group">
+            @if (session('success'))
+              <span class="text-success">{{ session('success') }}</span>
+            @endif
+            {{ csrf_field() }}
+            <button class="btn btn-primary" type="submit" name="button">Seguir</button>
+          </div>
+        </form>
+      @endif
     @endif
 
     <div class="row">
