@@ -4,6 +4,9 @@
   <div class="container">
     <h1>{{ $user->name }}</h1>
 
+    <a href="/{{ $user->username }}/follows">Sigue a <span class="badge badge-dark">{{ $user->follows->count() }}</span></a>
+    <a href="/{{ $user->username }}/followers">Seguido por <span class="badge badge-dark">{{ $user->followers->count() }}</span></a>
+
     @if (Auth::check())
       @if (Auth::user()->isFollowing($user))
         <form action="/{{ $user->username }}/unfollow" method="post">
