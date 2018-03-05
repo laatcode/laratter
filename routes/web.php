@@ -32,4 +32,5 @@ Route::group(['middleware' => 'auth'], function (){
   Route::post('/{username}/unfollow', 'UsersController@unfollow');
 
   Route::post('/{username}/dms', 'UsersController@sendPrivateMessage');
+  Route::get('/conversations/{conversation}', 'UsersController@showConversation');
 });
