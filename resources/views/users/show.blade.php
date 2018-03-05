@@ -10,14 +10,16 @@
     </div>
 
     @if (Auth::check())
-      <form class="form-row form-group" action="/{{ $user->username }}/dms" method="post">
-        <div class="col-10">
-          <input class="form-control" type="text" name="message">
-        </div>
-        <div class="col-2">
-          <button class="btn btn-success" type="submit">Enviar mensaje privado</button>
-        </div>
-      </form>
+      @if (Gate::allows('dms', $user))
+        <form class="form-row form-group" action="/{{ $user->username }}/dms" method="post">
+          <div class="col-10">
+            <input class="form-control" type="text" name="message">
+          </div>
+          <div class="col-2">
+            <button class="btn btn-success" type="submit">Enviar mensaje privado</button>
+          </div>
+        </form>
+      @endif
       @if (Auth::user()->isFollowing($user))
         <form action="/{{ $user->username }}/unfollow" method="post">
           <div class="form-group">
