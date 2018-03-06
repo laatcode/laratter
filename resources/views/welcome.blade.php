@@ -17,7 +17,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <form action="messages/create" method="post">
+        <form action="messages/create" method="post" enctype="multipart/form-data">
           <div class="form-group">
             {{ csrf_field() }}
             <input type="text" name="message" class="form-control @if($errors->has('message')) is-invalid @endif" placeholder="¿Qué estás pensando?">
@@ -28,6 +28,10 @@
                 </div>
               @endforeach
             @endif
+          </div>
+          <div class="form-group">
+            <label for="image" class="btn btn-primary">Seleccionar imagen</label>
+            <input id="image" class="d-none" type="file" name="image" accept="image/*">
           </div>
         </form>
       </div>
