@@ -11,7 +11,7 @@ class UsersController extends Controller
 {
 
     private function findByUsername($username){
-      return $user = User::where('username', $username)->first();
+      return $user = User::where('username', $username)->firstOrFail();
     }
 
     public function show($username){
