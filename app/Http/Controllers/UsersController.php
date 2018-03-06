@@ -77,7 +77,14 @@ class UsersController extends Controller
       ]);
 
       return redirect('/conversations/' . $conversation->id);
+    }
 
+    public function showConversation(Conversation $conversation){
+      $conversation->load('users', 'privateMessages');
 
+      return view('users.conversation', [
+        'conversation' => $conversation,
+        'user' => auth()->user(),
+      ]);
     }
 }
