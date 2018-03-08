@@ -14,6 +14,7 @@
 Route::get('/', 'PagesController@index');
 Route::get('/message/{message}', 'MessagesController@show');
 
+Route::get('/messages', 'MessagesController@search');
 
 Auth::routes();
 
