@@ -23,4 +23,16 @@ class UsersTest extends TestCase
 
         $this->assertAuthenticatedAs($user);
     }
+
+    public function testCanFollow(){
+      $user = factory(User::class)->create();
+      $other = factory(User::class)->create();
+
+      $response = $this->actingAs($user)->post($other->username . '/follow');
+
+      $this->assertDatabaseHas('followers', [
+        'user_id' => $user->id,
+        'followed_id' => $other->id,
+      ]);
+    }
 }
