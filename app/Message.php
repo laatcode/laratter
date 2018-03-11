@@ -19,4 +19,8 @@ class Message extends Model
         return \Storage::disk('public')->url($image);
       }
     }
+
+    public function responses(){
+      return $this->hasMany(Response::class)->latest();
+    }
 }
