@@ -12,14 +12,7 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <!-- JS -->
-    <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
 </head>
 <body>
@@ -82,7 +75,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/popper.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}">
+
+    </script>
   </body>
 </html>
