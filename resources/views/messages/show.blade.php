@@ -7,4 +7,6 @@
     {{ $message->content }}
     <small class="text-muted">{{ $message->create_at }}</small>
   </p>
+
+  <responses :message="{{ $message->id }}"></responses>
 @endsection
