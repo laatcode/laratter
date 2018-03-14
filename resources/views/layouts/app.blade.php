@@ -49,6 +49,11 @@
                             <li><a class="nav-link" href="{{ route('register') }}">Registrarse</a></li>
                         @else
                             <li class="nav-item dropdown">
+                              <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Notificaciones</a>
+                              <notifications :user="{{ Auth::user()->id }}"></notifications>
+                            </li>
+
+                            <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
