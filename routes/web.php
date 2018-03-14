@@ -34,6 +34,9 @@ Route::group(['middleware' => 'auth'], function (){
 
   Route::post('/{username}/dms', 'UsersController@sendPrivateMessage');
   Route::get('/conversations/{conversation}', 'UsersController@showConversation');
+
+  route::get('/api/notifications', 'UsersController@notifications');
+
 });
 
 Route::get('/api/message/{message}/responses', 'MessagesController@responses');
