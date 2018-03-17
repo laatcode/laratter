@@ -7,6 +7,7 @@ use App\User;
 use App\Conversation;
 use App\PrivateMessage;
 use App\Notifications\UserFollowed;
+use App\Notification;
 
 class UsersController extends Controller
 {
@@ -91,5 +92,9 @@ class UsersController extends Controller
 
     public function notifications(Request $request){
       return $request->user()->notifications;
+    }
+
+    public function readNotification(Notification $notification){
+      $notification->update(['read_at' => now()]);
     }
 }
