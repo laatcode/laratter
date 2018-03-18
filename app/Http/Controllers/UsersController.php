@@ -8,6 +8,7 @@ use App\Conversation;
 use App\PrivateMessage;
 use App\Notifications\UserFollowed;
 use App\Notification;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -96,5 +97,9 @@ class UsersController extends Controller
 
     public function readNotification(Notification $notification){
       $notification->update(['read_at' => now()]);
+    }
+
+    public function readNotifications(){
+      return Auth::user()->notifications->markAsRead();
     }
 }
