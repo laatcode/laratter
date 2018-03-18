@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome-all.min.css') }}">
 
 </head>
 <body>
@@ -80,8 +81,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}">
-
-    </script>
+    <script src="{{ mix('js/app.js') }}"></script>
   </body>
 </html>
