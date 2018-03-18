@@ -102,4 +102,8 @@ class UsersController extends Controller
     public function readNotifications(){
       return Auth::user()->notifications->markAsRead();
     }
+
+    public function deleteNotifications(){
+      return Auth::user()->notifications()->delete();
+    }
 }

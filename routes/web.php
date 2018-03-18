@@ -36,10 +36,9 @@ Route::group(['middleware' => 'auth'], function (){
   Route::get('/conversations/{conversation}', 'UsersController@showConversation');
 
   route::get('/api/notifications', 'UsersController@notifications');
-
   route::get('/api/readNotification/{notification}', 'UsersController@readNotification');
-
   route::get('/api/readNotifications', 'UsersController@readNotifications');
+  route::get('/api/deleteNotifications', 'UsersController@deleteNotifications');
 
 });
 
