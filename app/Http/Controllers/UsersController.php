@@ -106,4 +106,8 @@ class UsersController extends Controller
     public function deleteNotifications(){
       return Auth::user()->notifications()->delete();
     }
+
+    public function deleteNotification(Notification $notification){
+      $notification->delete();
+    }
 }
