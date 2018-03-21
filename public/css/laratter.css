@@ -1,0 +1,47 @@
+/* Palette:
+Rojo: #B3001B
+Verde: #0E3E47
+Gris: #D8CBC7
+Naranja: #CC3F0C
+Amarillo: #9A6D38 */
+
+/* Components */
+.badge-laratter{
+  background-color: #0E3E47;
+  color: white;
+}
+
+.btn-primary{
+  background-color: #0E3E47;
+  border-color: #0E3E47;
+  color: white;
+}
+/* /Components */
+
+
+/* layouts.app */
+.navbar{
+  background-color: #0E3E47;
+}
+
+.navbar a{
+  font-weight: bold;
+  color: white;
+}
+
+.navbar .dropdown-menu, .navbar .dropdown-item{
+  background-color: #0E3E47;
+  color: white;
+}
+/* /layouts.app */
+
+
+/* User profile */
+.follow-link{
+  font-weight: bold;
+}
+
+.follow-link a{
+  color: #0E3E47;
+}
+/* /User profile */

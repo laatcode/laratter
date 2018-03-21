@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-  <h1>{{ $user->name }}</h1>
+  <div class="mt-3">
+    <h2>{{ $user->name }}</h2>
+  </div>
 
-  <div class="mb-3">
-    <a href="/{{ $user->username }}/follows">Sigue a <span class="badge badge-dark">{{ $user->follows->count() }}</span></a>
-    <a href="/{{ $user->username }}/followers">Seguido por <span class="badge badge-dark">{{ $user->followers->count() }}</span></a>
+  <div class="mb-3 follow-link">
+    <a href="/{{ $user->username }}/follows">Sigue a <span class="badge badge-laratter">{{ $user->follows->count() }}</span></a>
+    <a class="ml-3" href="/{{ $user->username }}/followers">Seguido por <span class="badge badge-laratter">{{ $user->followers->count() }}</span></a>
   </div>
 
   @if (Auth::check())
