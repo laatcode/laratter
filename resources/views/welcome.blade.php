@@ -15,27 +15,29 @@
   </div>
 
   <div class="container">
-    <div class="row">
-      <div class="col">
-        <form action="messages/create" method="post" enctype="multipart/form-data">
-          <div class="form-group">
-            {{ csrf_field() }}
-            <input type="text" name="message" class="form-control @if($errors->has('message')) is-invalid @endif" placeholder="¿Qué estás pensando?">
-            @if ($errors->has('message'))
-              @foreach ($errors->get('message') as $error)
-                <div class="invalid-feedback">
-                  {{ $error }}
-                </div>
-              @endforeach
-            @endif
+    @if (Auth::check())
+      <div class="row">
+        <div class="col">
+          <form action="messages/create" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              {{ csrf_field() }}
+              <input type="text" name="message" class="form-control @if($errors->has('message')) is-invalid @endif" placeholder="¿Qué estás pensando?">
+                @if ($errors->has('message'))
+                  @foreach ($errors->get('message') as $error)
+                    <div class="invalid-feedback">
+                      {{ $error }}
+                    </div>
+                  @endforeach
+                @endif
+              </div>
+              <div class="form-group">
+                <label for="image" class="btn btn-primary">Seleccionar imagen</label>
+                <input id="image" class="d-none" type="file" name="image" accept="image/*">
+              </div>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="image" class="btn btn-primary">Seleccionar imagen</label>
-            <input id="image" class="d-none" type="file" name="image" accept="image/*">
-          </div>
-        </form>
-      </div>
-    </div>
+        </div>
+    @endif
 
     <div class="row">
       @forelse ($messages as $message)
