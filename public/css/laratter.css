@@ -16,6 +16,11 @@ Amarillo: #9A6D38 */
   border-color: #0E3E47;
   color: white;
 }
+
+.btn-primary:hover{
+  background-color: #166472;
+  border-color: #166472;
+}
 /* /Components */
 
 
@@ -31,6 +36,11 @@ Amarillo: #9A6D38 */
 
 .navbar .dropdown-menu, .navbar .dropdown-item{
   background-color: #0E3E47;
+  color: white;
+}
+
+.navbar .dropdown-item:hover{
+  background-color: #166472;
   color: white;
 }
 /* /layouts.app */

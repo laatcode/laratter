@@ -1,42 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="jumbotron text-center">
-    <h1>Laratter</h1>
-    <nav >
-      <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Inicio</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
 
   @if (Auth::check())
-    <div class="row">
-      <div class="col">
-        <form action="messages/create" method="post" enctype="multipart/form-data">
-          <div class="form-group">
-            {{ csrf_field() }}
-            <input type="text" name="message" class="form-control @if($errors->has('message')) is-invalid @endif" placeholder="¿Qué estás pensando?">
-              @if ($errors->has('message'))
-                @foreach ($errors->get('message') as $error)
-                  <div class="invalid-feedback">
-                    {{ $error }}
-                  </div>
-                @endforeach
-              @endif
-            </div>
-            <div class="form-group">
-              <label for="image" class="btn btn-primary">Seleccionar imagen</label>
-              <input id="image" class="d-none" type="file" name="image" accept="image/*">
-            </div>
-          </form>
+    <form class="form-row mt-3" action="messages/create" method="post" enctype="multipart/form-data">
+      <div class="form-group col">
+        {{ csrf_field() }}
+        <input type="text" name="message" class="form-control @if($errors->has('message')) is-invalid @endif" placeholder="¿Qué estás pensando?">
+          @if ($errors->has('message'))
+            @foreach ($errors->get('message') as $error)
+              <div class="invalid-feedback">
+                {{ $error }}
+              </div>
+            @endforeach
+          @endif
         </div>
-      </div>
-    @endif
+        <div class="form-group col-1 col-lg-2">
+          <label for="image" class="btn btn-primary d-none d-sm-inline-block">Seleccionar imagen</label>
+          <label for="image" class="btn btn-primary d-sm-none"><span class="fas fa-camera"></span></label>
+          <input id="image" class="d-none" type="file" name="image" accept="image/*">
+        </div>
+      </form>
+  @endif
 
-    <div class="row">
+    <div class="row @if(!Auth::check()) mt-4 @endif">
       @forelse ($messages as $message)
         <div class="col-6">
           @include('messages.message')
