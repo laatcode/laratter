@@ -16,8 +16,8 @@
           @endif
         </div>
         <div class="form-group col-1 col-lg-2">
-          <label for="image" class="btn btn-primary d-none d-sm-inline-block">Seleccionar imagen</label>
-          <label for="image" class="btn btn-primary d-sm-none"><span class="fas fa-camera"></span></label>
+          <label for="image" class="btn btn-primary d-none d-lg-inline-block">Seleccionar imagen</label>
+          <label for="image" class="btn btn-primary d-lg-none"><span class="fas fa-camera fa-lg"></span></label>
           <input id="image" class="d-none" type="file" name="image" accept="image/*">
         </div>
       </form>
