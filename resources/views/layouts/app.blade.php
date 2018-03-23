@@ -47,7 +47,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">Entar</a></li>
+                            <li><a class="nav-link" href="{{ route('login') }}">Ingresar</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">Registrarse</a></li>
                         @else
                             <li class="nav-item dropdown">
@@ -77,7 +77,7 @@
             </div>
         </nav>
 
-        <div class="container">
+        <div class="container mt-4">
           @yield('content')
         </div>
 

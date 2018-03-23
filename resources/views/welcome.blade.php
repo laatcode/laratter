@@ -23,7 +23,7 @@
       </form>
   @endif
 
-    <div class="row @if(!Auth::check()) mt-4 @endif">
+    <div class="row">
       @forelse ($messages as $message)
         <div class="col-6">
           @include('messages.message')

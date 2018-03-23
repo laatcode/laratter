@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="dropdown-menu dropdown-menu-right">
-    <span v-if="notifications==0" class="dropdown-item text-muted">No tiene notificaciones</span>
+    <span v-if="notifications==0" class="dropdown-item">No tiene notificaciones</span>
     <div v-else v-for="notification in notifications" class="d-flex align-items-center dropdown-item">
       <a v-on:click="read(notification, $event)" :href="'/' + notification.data.follower.username">
         @{{ notification.data.follower.username }} te ha seguido! <span v-if="notification.read_at==null" class="badge badge-success">Nueva</span>
