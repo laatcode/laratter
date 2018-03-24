@@ -5,26 +5,6 @@ Gris: #D8CBC7
 Naranja: #CC3F0C
 Amarillo: #9A6D38 */
 
-/* Components */
-.badge-laratter{
-  background-color: #0E3E47;
-  color: white;
-}
-
-.btn-primary{
-  background-color: #0E3E47;
-  border-color: #0E3E47;
-  color: white;
-}
-
-.btn-primary:hover{
-  background-color: #166472;
-  border-color: #166472;
-}
-/* /Components */
-
-
-/* layouts.app */
 .navbar{
   background-color: #0E3E47;
 }
@@ -43,10 +23,60 @@ Amarillo: #9A6D38 */
   background-color: #166472;
   color: white;
 }
-/* /layouts.app */
 
 
-/* User profile */
+form label{
+  font-weight: bold;
+}
+
+
+.card{
+  border-color: #0E3E47;
+}
+
+.card-header{
+  background-color: #0E3E47;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.badge-laratter{
+  background-color: #0E3E47;
+  color: white;
+}
+
+
+.btn a{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-primary{
+  background-color: #0E3E47;
+  border-color: #0E3E47;
+  font-weight: bold;
+  color: white;
+}
+
+.btn-primary:hover{
+  background-color: #166472;
+  border-color: #166472;
+}
+
+.btn-facebook{
+  background-color: #3B5998;
+  border-color: #3B5998;
+  color: white;
+}
+
+.btn-facebook:hover{
+  background-color: #4D78D6;
+  border-color: #4D78D6;
+}
+
 .follow-link{
   font-weight: bold;
 }
@@ -54,4 +84,3 @@ Amarillo: #9A6D38 */
 .follow-link a{
   color: #0E3E47;
 }
-/* /User profile */

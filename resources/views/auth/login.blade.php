@@ -64,7 +64,10 @@
 
                     <div class="row">
                       <div class="col-md-8 offset-md-4 mt-2">
-                        <a class="btn btn-primary" href="/auth/facebook">Iniciar sesión con Facebook</a>
+                        <div class="btn btn-facebook">
+                          <span class="fab fa-facebook-square fa-lg"></span>
+                          <a class="ml-1" href="/auth/facebook">Ingresar con Facebook</a>
+                        </div>
                       </div>
                     </div>
 
