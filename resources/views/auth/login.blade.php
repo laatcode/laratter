@@ -71,6 +71,15 @@
                       </div>
                     </div>
 
+                    <div class="row">
+                      <div class="col-md-8 offset-md-4 mt-2">
+                        <div class="btn btn-github">
+                          <i class="fab fa-github fa-lg"></i>
+                          <a class="ml-1" href="/auth/github">Ingresar con Github</a>
+                        </div>
+                      </div>
+                    </div>
+
                 </div>
             </div>
         </div>

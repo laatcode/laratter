@@ -77,6 +77,18 @@ form label{
   border-color: #4D78D6;
 }
 
+.btn-github{
+  background-color: #24292E;
+  border-color: #24292E;
+  color: white;
+}
+
+.btn-github:hover{
+  background-color: #394149;
+  border-color: #394149;
+}
+
+
 .follow-link{
   font-weight: bold;
 }
