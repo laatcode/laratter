@@ -19,7 +19,9 @@ Route::get('/messages', 'MessagesController@search');
 Auth::routes();
 
 Route::get('/auth/facebook', 'SocialAuthController@facebook');
-Route::get('/auth/facebook/callback', 'SocialAuthController@callback');
+Route::get('/auth/facebook/callback', 'SocialAuthController@facebookCallback');
+Route::get('/auth/github', 'SocialAuthController@github');
+Route::get('/auth/github/callback', 'SocialAuthController@githubCallback');
 Route::post('/auth/facebook/register', 'SocialAuthController@register');
 
 Route::get('/{username}', 'UsersController@show');
