@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Socialite;
 use App\User;
 use App\SocialProfile;
+use App\Http\Requests\CreateSocialProfileRequest;
 
 class SocialAuthController extends Controller
 {
@@ -13,7 +14,7 @@ class SocialAuthController extends Controller
       return Socialite::driver('facebook')->redirect();
     }
 
-    public function callback(){
+    public function facebookCallback(){
       $user = Socialite::driver('facebook')->user();
 
       $existing = User::whereHas('socialProfiles', function ($query) use ($user){
@@ -26,15 +27,40 @@ class SocialAuthController extends Controller
         return redirect('/');
       }
 
-      session()->flash('facebookUser', $user);
+      session()->flash('socialProfile', $user);
 
       return view('users.facebook', [
         'user' => $user,
       ]);
     }
 
-    public function register(Request $request){
-      $data = session('facebookUser');
+    public function github(){
+      return Socialite::driver('github')->redirect();
+    }
+
+    public function githubCallback(){
+      $user = Socialite::driver('github')->user();
+
+      $existing = User::whereHas('socialProfiles', function ($query) use ($user){
+        $query->where('social_id', $user->id);
+      })->first();
+
+      if($existing != null){
+        auth()->login($existing);
+
+        return redirect('/');
+      }
+
+      session()->flash('socialProfile', $user);
+
+      return view('users.facebook', [
+        'user' => $user,
+      ]);
+
+    }
+
+    public function register(CreateSocialProfileRequest $request){
+      $data = session('socialProfile');
       $name = $request->name;
       $email = $request->email;
       $username = $request->username;
