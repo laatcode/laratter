@@ -47,4 +47,10 @@ return [
       'redirect' => 'http://localhost:8000/auth/github/callback',
     ],
 
+    'twitter' => [
+      'client_id' => env('TWITTER_CLIENT_ID'),
+      'client_secret' => env('TWITTER_CLIENT_SECRET'),
+      'redirect' => 'http://localhost:8000/auth/twitter/callback',
+    ],
+
 ];

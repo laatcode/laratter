@@ -59,6 +59,31 @@ class SocialAuthController extends Controller
 
     }
 
+    public function twitter(){
+      return Socialite::driver('twitter')->redirect();
+    }
+
+    public function twitterCallback(){
+      $user = Socialite::driver('twitter')->user();
+
+      $existing = User::whereHas('socialProfiles', function ($query) use ($user){
+        $query->where('social_id', $user->id);
+      })->first();
+
+      if($existing != null){
+        auth()->login($existing);
+
+        return redirect('/');
+      }
+
+      session()->flash('socialProfile', $user);
+
+      return view('users.facebook', [
+        'user' => $user,
+      ]);
+
+    }
+
     public function register(CreateSocialProfileRequest $request){
       $data = session('socialProfile');
       $name = $request->name;
