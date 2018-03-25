@@ -88,6 +88,17 @@ form label{
   border-color: #394149;
 }
 
+.btn-twitter{
+  background-color: #4AB3F4;
+  border-color: #4AB3F4;
+  color: white;
+}
+
+.btn-twitter:hover{
+  background-color: #1DA1F2;
+  border-color: #1DA1F2;
+}
+
 
 .follow-link{
   font-weight: bold;
