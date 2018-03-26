@@ -26,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('dms', function (User $user, User $other){
+        Gate::define('bothFollowers', function (User $user, User $other){
           return $user->isFollowing($other) && $other->isFollowing($user);
         });
     }

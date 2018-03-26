@@ -11,7 +11,7 @@
   </div>
 
   @if (Auth::check())
-    @if (Gate::allows('dms', $user))
+    @if (Gate::allows('bothFollowers', $user))
       <form class="form-row form-group" action="/{{ $user->username }}/dms" method="post">
         {{ csrf_field() }}
         <div class="col-10">
