@@ -46,10 +46,18 @@
   @endif
 
   <div class="row">
-    @foreach ($user->messages as $message)
-      <div class="col-6">
-        @include('messages.message')
+    @if (Gate::allows('privateAccount'))
+      <div class="col text-center">
+        <h3>Esta cuenta es privada</h3>
+        <span class="fas fa-lock fa-10x mt-3"></span>
+        <p class="mt-3">Sigue esta cuenta para poder ver su contenido</p>
       </div>
-    @endforeach
+    @else
+      @foreach ($user->messages as $message)
+        <div class="col-6">
+          @include('messages.message')
+        </div>
+      @endforeach
+    @endif
   </div>
 @endsection
