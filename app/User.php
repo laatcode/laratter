@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function socialProfiles(){
       return $this->hasMany(SocialProfile::class);
     }
+
+    public function isPrivate(){
+      return $this->private == 1;
+    }
 }
