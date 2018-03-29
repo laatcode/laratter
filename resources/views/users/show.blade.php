@@ -2,33 +2,35 @@
 
 @section('content')
 
-  <div class="mt-3">
-    <h2>{{ $user->name }}</h2>
-  </div>
+  <div class="mt-3 d-flex align-items-center">
+    <img class="mr-2 mr-sm-5" src="{{ $user->avatar }}" width="120px" height="120px" style="border-radius:50%;">
+    <div class="col">
+      <h2>{{ $user->username }}</h2>
+      <h5>{{ $user->name }}</h5>
 
-  @if (Auth::check())
-    @if (Auth::user()->isFollowing($user))
-      <form action="/{{ $user->username }}/unfollow" method="post">
-        <div class="form-group">
-          @if (session('success'))
-            <span class="text-success">{{ session('success') }}</span>
+      <div class="mb-2 follow-link">
+        <a href="/{{ $user->username }}/follows">Sigue a <span class="badge badge-laratter">{{ $user->follows->count() }}</span></a>
+        <a class="ml-2" href="/{{ $user->username }}/followers">Seguido por <span class="badge badge-laratter">{{ $user->followers->count() }}</span></a>
+      </div>
+
+      <div class="form-group">
+        @if (Auth::check())
+          @if (Auth::user()->isFollowing($user))
+            <form action="/{{ $user->username }}/unfollow" method="post">
+              {{ csrf_field() }}
+              <button class="btn btn-danger" type="submit" name="button">Dejar de seguir</button>
+            </form>
+          @else
+            <form action="/{{ $user->username }}/follow" method="post">
+              {{ csrf_field() }}
+              <button class="btn btn-primary" type="submit" name="button">Seguir</button>
+            </form>
           @endif
-          {{ csrf_field() }}
-          <button class="btn btn-danger" type="submit" name="button">Dejar de seguir</button>
-        </div>
-      </form>
-    @else
-      <form action="/{{ $user->username }}/follow" method="post">
-        <div class="form-group">
-          @if (session('success'))
-            <span class="text-success">{{ session('success') }}</span>
-          @endif
-          {{ csrf_field() }}
-          <button class="btn btn-primary" type="submit" name="button">Seguir</button>
-        </div>
-      </form>
-    @endif
-  @endif
+        @endif
+      </div>
+
+    </div>
+  </div>
 
   @if ($user->isPrivate())
     @if (Auth::check() && Gate::allows('bothFollowers', $user))

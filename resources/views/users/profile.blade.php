@@ -1,8 +1,3 @@
-<div class="mb-3 follow-link">
-  <a href="/{{ $user->username }}/follows">Sigue a <span class="badge badge-laratter">{{ $user->follows->count() }}</span></a>
-  <a class="ml-3" href="/{{ $user->username }}/followers">Seguido por <span class="badge badge-laratter">{{ $user->followers->count() }}</span></a>
-</div>
-
 @if (Auth::check())
   @if (Gate::allows('bothFollowers', $user))
     <form class="form-row form-group" action="/{{ $user->username }}/dms" method="post">
