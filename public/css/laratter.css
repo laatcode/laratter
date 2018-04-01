@@ -5,6 +5,11 @@ Gris: #D8CBC7
 Naranja: #CC3F0C
 Amarillo: #9A6D38 */
 
+.required:after{
+   content:"*";
+   color:red;
+}
+
 .navbar{
   background-color: #0E3E47;
 }
