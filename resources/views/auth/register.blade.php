@@ -80,6 +80,11 @@
                           <label for="private" class="">Usuario privado</label>
                         </div>
 
+                        <div class="form-group offset-md-4">
+                          <label id="labelImg" for="inputImg" class="btn btn-secondary d-none d-lg-inline-block">Seleccionar imagen de perfil</label>
+                          <input id="inputImg" class="d-none" type="file" name="profileImage" accept="image/*" onchange="setNameLabelImage()">
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
