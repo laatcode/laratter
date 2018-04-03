@@ -3,7 +3,11 @@
 @section('content')
 
   <div class="mt-3 d-flex align-items-center">
-    <img class="mr-2 mr-sm-5" src="{{ $user->avatar }}" width="120px" height="120px" style="border-radius:50%;">
+    @if ($user->avatar == null)
+      <span class="mr-2 mr-sm-5 far fa-user fa-7x"></span>
+    @else
+      <img class="mr-2 mr-sm-5" src="{{ $user->avatar }}" width="120px" height="120px" style="border-radius:50%;">
+    @endif
     <div class="col">
       <h2>{{ $user->username }}</h2>
       <h5>{{ $user->name }}</h5>
