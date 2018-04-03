@@ -50,4 +50,11 @@ class User extends Authenticatable
     public function isPrivate(){
       return $this->private == 1;
     }
+
+    public function getAvatarAttribute($avatar){
+      if (starts_with($avatar, 'http') || !$avatar) {
+        return $avatar;
+      }
+      return \Storage::disk('public')->url($avatar);
+    }
 }
